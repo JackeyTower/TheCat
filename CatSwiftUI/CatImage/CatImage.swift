@@ -1,8 +1,8 @@
 //
-//  Breed2.swift
+//  CatImage.swift
 //  CatSwiftUI
 //
-//  Created by macvm on 2022/5/3.
+//  Created by macvm on 2022/5/4.
 //
 
 import Foundation
@@ -10,12 +10,9 @@ import Alamofire
 import SwiftyJSON
 
 // MARK: - Breed
-struct Breed2 :Identifiable{
-
-    var name:String
+struct CatImage:Identifiable{
     var id:String
+    var breedId:String
     var imageURL:String
-    var description:String
 
 }
-
