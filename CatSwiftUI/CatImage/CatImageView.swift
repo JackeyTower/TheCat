@@ -2,27 +2,21 @@
 //  CatImageView.swift
 //  CatSwiftUI
 //
-//  Created by macvm on 2022/5/4.
+//  Created by macvm on 2022/5/5.
 //
 
 import SwiftUI
 
-//猫图片视图
 struct CatImageView: View {
-    @ObservedObject var catImageViewModel=CatImageViewModel()
+    var imageUrl: String
     
     var body: some View {
-        VStack{
-            Button("Random Cat"){
-                catImageViewModel.fetchRandomCatImage()
-            }
-            WebImageView(url: URL(string: catImageViewModel.catImage.imageURL))
-        }
+        WebImageView(url: URL(string: imageUrl))
     }
 }
 
-struct CatImageView_Previews: PreviewProvider {
-    static var previews: some View {
-        CatImageView()
-    }
-}
+//struct CatImageView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        CatImageView()
+//    }
+//}

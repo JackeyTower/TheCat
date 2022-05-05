@@ -9,4 +9,5 @@ target 'CatSwiftUI' do
   pod 'Alamofire', '~> 5.5'
   pod 'SwiftyJSON', '~> 4.0'
   pod 'SDWebImageSwiftUI'
+  pod 'SQLite.swift', '~> 0.13.3'
 end
