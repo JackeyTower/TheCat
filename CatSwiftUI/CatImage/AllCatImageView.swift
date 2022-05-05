@@ -26,43 +26,20 @@ struct AllCatImageView: View {
                         currentData.fetchAllCatImage(page: self.page)
                     }
                 }
-
             }
             Text("Page \(self.page)")
             NavigationView{
                 List(currentData.catImageData,id:\.id){catImage in
-//                    NavigationLink(destination:
-//                                    CatImageView(breed: breed)){
-//                        BreedRow(breed:breed)
-//                    }
-                    HStack{
-                        CatImageView(imageUrl:catImage.imageURL)
-                        Button("Collect It"){
-                            do{
-                                try SQLiteDataSource.sharedInstance.createTables()
-                            } catch _{
-                                
-                            }
-                            do {
-                                var res=try CatImageDataHelper.find(findId: catImage.id)
-                                if res != nil{
-                                    do{
-                                        try! CatImageDataHelper.insert(item: CollectedCatImage(id:catImage.id,url:catImage.imageURL))
-                                    }catch _{
-                                        
-                                    }
-                                }
-                            }catch _{
-                                
-                            }
-
-                        }
+                    NavigationLink(destination:
+                                    CatImageDetail(catImage: catImage)){
+                        CatImageRow(catImage: catImage)
                     }
                 }
             }
         }
     }
-
+    
+    
 }
 
 struct AllCatImageView_Previews: PreviewProvider {
