@@ -13,7 +13,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView(content: {
             NavigationLink(
-                destination: RandomCatImageView(),
+                destination: FateStayCatView(),
                 label: {
                     Text("点我跳转到第二个画面")
                 })

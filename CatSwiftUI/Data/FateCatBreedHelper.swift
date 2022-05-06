@@ -76,7 +76,7 @@ class FateCatBreedDataHelper {
     }
    
     //查找times最大的breed的breedNames
-    static func findMaxTimesBreed() throws -> String? {
+    static func findMaxTimesBreedName() throws -> String? {
         guard let DB = SQLiteDataSource.sharedInstance.BBDB else {
             throw DataAccessError.Datastore_Connection_Error
         }
