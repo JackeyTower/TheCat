@@ -14,4 +14,5 @@ struct CatImage:Identifiable{
     var id:String
     var breedId:String
     var imageURL:String
+    var breedName:String
 }

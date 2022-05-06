@@ -9,7 +9,7 @@ import Foundation
 import SQLite
 
 
-
+//sqlite数据连接源
 class SQLiteDataSource {
     static let sharedInstance = SQLiteDataSource()
     let BBDB: Connection?
@@ -29,6 +29,8 @@ class SQLiteDataSource {
     func createTables() throws{
         do {
             try CatImageDataHelper.createTable()
+            try VoteCatImageDataHelper.createTable()
+            try FateCatBreedDataHelper.createTable()
         } catch _ {
             
         }

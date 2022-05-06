@@ -24,6 +24,12 @@
 		0D78211D2824111E00E5232A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D78211C2824111E00E5232A /* ImagePicker.swift */; };
 		0D78211F2824165400E5232A /* UploadImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D78211E2824165400E5232A /* UploadImage.swift */; };
 		0D7821212825213D00E5232A /* ImageSaver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D7821202825213D00E5232A /* ImageSaver.swift */; };
+		0D78212428255D6300E5232A /* CollectedCatImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D78212328255D6300E5232A /* CollectedCatImageView.swift */; };
+		0D78212728255DB000E5232A /* CollectedCatImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D78212628255DB000E5232A /* CollectedCatImageViewModel.swift */; };
+		0D78212D28256D6400E5232A /* VoteCatImageDataHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D78212C28256D6400E5232A /* VoteCatImageDataHelper.swift */; };
+		0D78213028256E4100E5232A /* VotedCatImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D78212F28256E4100E5232A /* VotedCatImageView.swift */; };
+		0D78213228256E5D00E5232A /* VotedCatImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D78213128256E5D00E5232A /* VotedCatImageViewModel.swift */; };
+		0D782134282575DD00E5232A /* FateCatBreedHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D782133282575DD00E5232A /* FateCatBreedHelper.swift */; };
 		0D8D775F281EB8E9001D9849 /* CatSwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8D775E281EB8E9001D9849 /* CatSwiftUIApp.swift */; };
 		0D8D7761281EB8E9001D9849 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8D7760281EB8E9001D9849 /* ContentView.swift */; };
 		0D8D7763281EB8EA001D9849 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D8D7762281EB8EA001D9849 /* Assets.xcassets */; };
@@ -58,6 +64,12 @@
 		0D78211C2824111E00E5232A /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		0D78211E2824165400E5232A /* UploadImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadImage.swift; sourceTree = "<group>"; };
 		0D7821202825213D00E5232A /* ImageSaver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSaver.swift; sourceTree = "<group>"; };
+		0D78212328255D6300E5232A /* CollectedCatImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectedCatImageView.swift; sourceTree = "<group>"; };
+		0D78212628255DB000E5232A /* CollectedCatImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectedCatImageViewModel.swift; sourceTree = "<group>"; };
+		0D78212C28256D6400E5232A /* VoteCatImageDataHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteCatImageDataHelper.swift; sourceTree = "<group>"; };
+		0D78212F28256E4100E5232A /* VotedCatImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotedCatImageView.swift; sourceTree = "<group>"; };
+		0D78213128256E5D00E5232A /* VotedCatImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VotedCatImageViewModel.swift; sourceTree = "<group>"; };
+		0D782133282575DD00E5232A /* FateCatBreedHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FateCatBreedHelper.swift; sourceTree = "<group>"; };
 		0D8D775B281EB8E9001D9849 /* CatSwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatSwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D8D775E281EB8E9001D9849 /* CatSwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatSwiftUIApp.swift; sourceTree = "<group>"; };
 		0D8D7760281EB8E9001D9849 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -98,14 +110,11 @@
 		0D782101282294E500E5232A /* CatImage */ = {
 			isa = PBXGroup;
 			children = (
-				0D7821022822952800E5232A /* CatImage.swift */,
-				0D782104282295F300E5232A /* RandomCatImageView.swift */,
-				0D7821062822964100E5232A /* CatImageViewModel.swift */,
-				0D7821112823E59900E5232A /* AllCatImageView.swift */,
-				0D7821132823E5B600E5232A /* AllCatImageViewModel.swift */,
-				0D7821152823E88300E5232A /* CatImageView.swift */,
-				0D7821172823FBFA00E5232A /* CatImageRow.swift */,
-				0D7821192823FC3000E5232A /* CatImageDetail.swift */,
+				0D78212E28256DF600E5232A /* Vote */,
+				0D78212B2825671600E5232A /* Common */,
+				0D78212A2825670600E5232A /* AllCat */,
+				0D782129282566FA00E5232A /* Random */,
+				0D7821282825659400E5232A /* Collected */,
 			);
 			path = CatImage;
 			sourceTree = "<group>";
@@ -113,9 +122,11 @@
 		0D7821082822A6D100E5232A /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				0D78212C28256D6400E5232A /* VoteCatImageDataHelper.swift */,
 				0D7821092822A6E700E5232A /* SQLiteDataSource.swift */,
 				0D78210D2822A97D00E5232A /* CatImageDataHelper.swift */,
 				0D78210F2822AD0600E5232A /* DataError.swift */,
+				0D782133282575DD00E5232A /* FateCatBreedHelper.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -128,6 +139,53 @@
 				0D7821202825213D00E5232A /* ImageSaver.swift */,
 			);
 			path = Upload;
+			sourceTree = "<group>";
+		};
+		0D7821282825659400E5232A /* Collected */ = {
+			isa = PBXGroup;
+			children = (
+				0D78212328255D6300E5232A /* CollectedCatImageView.swift */,
+				0D78212628255DB000E5232A /* CollectedCatImageViewModel.swift */,
+			);
+			path = Collected;
+			sourceTree = "<group>";
+		};
+		0D782129282566FA00E5232A /* Random */ = {
+			isa = PBXGroup;
+			children = (
+				0D782104282295F300E5232A /* RandomCatImageView.swift */,
+			);
+			path = Random;
+			sourceTree = "<group>";
+		};
+		0D78212A2825670600E5232A /* AllCat */ = {
+			isa = PBXGroup;
+			children = (
+				0D7821132823E5B600E5232A /* AllCatImageViewModel.swift */,
+				0D7821112823E59900E5232A /* AllCatImageView.swift */,
+			);
+			path = AllCat;
+			sourceTree = "<group>";
+		};
+		0D78212B2825671600E5232A /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				0D7821152823E88300E5232A /* CatImageView.swift */,
+				0D7821062822964100E5232A /* CatImageViewModel.swift */,
+				0D7821172823FBFA00E5232A /* CatImageRow.swift */,
+				0D7821192823FC3000E5232A /* CatImageDetail.swift */,
+				0D7821022822952800E5232A /* CatImage.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		0D78212E28256DF600E5232A /* Vote */ = {
+			isa = PBXGroup;
+			children = (
+				0D78212F28256E4100E5232A /* VotedCatImageView.swift */,
+				0D78213128256E5D00E5232A /* VotedCatImageViewModel.swift */,
+			);
+			path = Vote;
 			sourceTree = "<group>";
 		};
 		0D8D7752281EB8E9001D9849 = {
@@ -332,6 +390,7 @@
 			files = (
 				0D3466CB2822228100510F05 /* Breed.swift in Sources */,
 				0D8D777C281EBA9B001D9849 /* BreedDetail.swift in Sources */,
+				0D78212728255DB000E5232A /* CollectedCatImageViewModel.swift in Sources */,
 				0D78211F2824165400E5232A /* UploadImage.swift in Sources */,
 				0D8D7768281EB8EA001D9849 /* Persistence.swift in Sources */,
 				0D7821182823FBFA00E5232A /* CatImageRow.swift in Sources */,
@@ -343,7 +402,9 @@
 				0D8D778E281FCB81001D9849 /* BreedRow.swift in Sources */,
 				0D7821032822952900E5232A /* CatImage.swift in Sources */,
 				0D78211A2823FC3000E5232A /* CatImageDetail.swift in Sources */,
+				0D78212D28256D6400E5232A /* VoteCatImageDataHelper.swift in Sources */,
 				0D8D777A281EBA07001D9849 /* WebImageView.swift in Sources */,
+				0D78213028256E4100E5232A /* VotedCatImageView.swift in Sources */,
 				0D78211D2824111E00E5232A /* ImagePicker.swift in Sources */,
 				0D8D7761281EB8E9001D9849 /* ContentView.swift in Sources */,
 				0D78210E2822A97D00E5232A /* CatImageDataHelper.swift in Sources */,
@@ -351,10 +412,13 @@
 				0D782105282295F300E5232A /* RandomCatImageView.swift in Sources */,
 				0D8D776B281EB8EA001D9849 /* CatSwiftUI.xcdatamodeld in Sources */,
 				0D8D775F281EB8E9001D9849 /* CatSwiftUIApp.swift in Sources */,
+				0D78213228256E5D00E5232A /* VotedCatImageViewModel.swift in Sources */,
 				0D7821072822964100E5232A /* CatImageViewModel.swift in Sources */,
 				0D7821212825213D00E5232A /* ImageSaver.swift in Sources */,
 				0D8D778C281FCAD7001D9849 /* BreedList.swift in Sources */,
 				0D3466F42822280400510F05 /* Breed2.swift in Sources */,
+				0D782134282575DD00E5232A /* FateCatBreedHelper.swift in Sources */,
+				0D78212428255D6300E5232A /* CollectedCatImageView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

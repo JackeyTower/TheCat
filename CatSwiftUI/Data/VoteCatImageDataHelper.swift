@@ -1,20 +1,20 @@
 //
-//  CatImageDataHelper.swift
+//  VoteCatImageDataHelper.swift
 //  CatSwiftUI
 //
-//  Created by macvm on 2022/5/4.
+//  Created by macvm on 2022/5/6.
 //
 
 import Foundation
 import SQLite
 
-struct CollectedCatImage{
+struct VotedCatImage{
     var id: String
     var url: String
 }
 
-class CatImageDataHelper {
-    static let TABLE_NAME = "cat_image"
+class VoteCatImageDataHelper {
+    static let TABLE_NAME = "vote_cat_image"
    
     static let table = Table(TABLE_NAME)
     static let id = Expression<String>("id")
@@ -37,7 +37,7 @@ class CatImageDataHelper {
        
     }
    
-    static func insert(item: CollectedCatImage) throws -> Int64 {
+    static func insert(item: VotedCatImage) throws -> Int64 {
         guard let DB = SQLiteDataSource.sharedInstance.BBDB else {
             throw DataAccessError.Datastore_Connection_Error
         }
@@ -73,26 +73,26 @@ class CatImageDataHelper {
 //        }
 //    }
    
-    static func find(findId: String) throws -> CollectedCatImage? {
+    static func find(findId: String) throws -> VotedCatImage? {
         guard let DB = SQLiteDataSource.sharedInstance.BBDB else {
             throw DataAccessError.Datastore_Connection_Error
         }
         let query = table.filter(id == findId)
         var items = try! DB.prepare(query)
         for item in  items {
-            return CollectedCatImage(id: item[id] , url: item[url])
+            return VotedCatImage(id: item[id] , url: item[url])
         }
         return nil
     }
    
-    static func findAll() throws -> [CollectedCatImage]? {
+    static func findAll() throws -> [VotedCatImage]? {
         guard let DB = SQLiteDataSource.sharedInstance.BBDB else {
             throw DataAccessError.Datastore_Connection_Error
         }
-        var retArray : [CollectedCatImage]=[]
+        var retArray : [VotedCatImage]=[]
         var items = try! DB.prepare(table)
         for item in items {
-            retArray.append(CollectedCatImage(id: item[id], url: item[url]))
+            retArray.append(VotedCatImage(id: item[id], url: item[url]))
         }
        
         return retArray

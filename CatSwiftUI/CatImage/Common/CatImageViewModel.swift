@@ -1,36 +1,33 @@
 //
-//  AllCatImageViewModel.swift
+//  CatImageViewModel.swift
 //  CatSwiftUI
 //
-//  Created by macvm on 2022/5/5.
+//  Created by macvm on 2022/5/4.
 //
-
 import Foundation
 import Combine
 import Alamofire
 import SwiftyJSON
 
-class AllCatImageViewModel:ObservableObject {
-    @Published var catImageData : [CatImage] = []// 1
+//猫图片视图model
+class CatImageViewModel: ObservableObject {
+
+    @Published var catImage = CatImage(id:"0",breedId:"0",imageURL:"0",breedName: "") // 1
     
+
     init(){
-        fetchAllCatImage(page:1)
+        fetchRandomCatImage()
     }
 }
 
-extension AllCatImageViewModel {
+extension CatImageViewModel {
     
-    func fetchAllCatImage(page:Int) ->(){
+    func fetchRandomCatImage() ->(){
         
         var json=JSON()
-        var catImageData:[CatImage]=Array()
+        var breedData:[Breed2]=Array()
         
         //使用AF来发送http请求，获取响应
-        //封装parameters
-        let parameters: Parameters=[
-            "page":page,
-            "limit":2
-        ]
 
         //封装Headers
         let headers: HTTPHeaders = [
@@ -42,7 +39,6 @@ extension AllCatImageViewModel {
        
         AF.request("https://api.thecatapi.com/v1/images/search"
                    ,method: .get
-                   ,parameters: parameters
                    ,headers: headers
         ).response { (response) in
         //            debugPrint(response)
@@ -50,13 +46,9 @@ extension AllCatImageViewModel {
                 json=JSON(response.value)
                 switch response.result{
                 case .success:
-                    for i in 0..<20 {
-                        var catImage=CatImage( id: json[i]["id"].stringValue,breedId: json[i]["breeds"][0]["id"].stringValue, imageURL: json[i]["url"].stringValue)
-                        catImageData.append(catImage)
-                    }
-                    self.catImageData=catImageData
+                    self.catImage=CatImage( id: json[0]["id"].stringValue,breedId: json[0]["breeds"][0]["id"].stringValue, imageURL: json[0]["url"].stringValue,breedName: json[0]["breeds"][0]["name"].stringValue)
                 case .failure(_):
-                    print("bug in fetch all catImages")
+                    print("bug in fetch breeds")
                 }
 
             }
