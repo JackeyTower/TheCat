@@ -24,7 +24,7 @@ struct Breed: Codable,Hashable,Identifiable {
     let dogFriendly, energyLevel, experimental, grooming: Int?
     let hairless, healthIssues, hypoallergenic: Int?
     let id: String?
-    let image: Image?
+    let image: BreedImage?
     let indoor, intelligence, lap: Int?
     let lifeSpan, name: String?
     let natural: Int?
@@ -70,7 +70,7 @@ struct Breed: Codable,Hashable,Identifiable {
 }
 
 // MARK: - Image
-struct Image: Codable ,Hashable{
+struct BreedImage: Codable ,Hashable{
     let height: Int
     let id: String
     let url: String
