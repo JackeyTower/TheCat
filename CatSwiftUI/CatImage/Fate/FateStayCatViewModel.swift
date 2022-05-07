@@ -28,8 +28,8 @@ extension FateStayCatViewModel {
         var breedName="Abyssinian"
         do{
             var temp=try FateCatBreedDataHelper.findMaxTimesBreedName()
-            if temp != nil{
-                breedName=temp!
+            if temp != nil && temp != "" {
+                breedName=temp
             }
         }catch _{
             
@@ -66,7 +66,6 @@ extension FateStayCatViewModel {
                 case .failure(_):
                     print("bug in fetch breeds")
                 }
-
             }
     }
 

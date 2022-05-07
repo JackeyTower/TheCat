@@ -76,16 +76,17 @@ class FateCatBreedDataHelper {
     }
    
     //查找times最大的breed的breedNames
-    static func findMaxTimesBreedName() throws -> String? {
+    static func findMaxTimesBreedName() throws -> String {
         guard let DB = SQLiteDataSource.sharedInstance.BBDB else {
             throw DataAccessError.Datastore_Connection_Error
         }
-//        let query = table.filter(id == findId)
-//        var items = try! DB.prepare(query)
-//        for item in  items {
-//            return FateCatBreed(id: item[id] , breedName: item[breedName],times: item[times])
-//        }
-        return nil
+
+        let query=table.order(times.desc)
+        var items = try! DB.prepare(query)
+        for item in  items {
+            return item[breedName]
+        }
+        return ""
     }
    
     //根据breedId返回FateBreed

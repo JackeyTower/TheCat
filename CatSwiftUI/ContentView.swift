@@ -12,11 +12,44 @@ struct ContentView: View {
 
     var body: some View {
         NavigationView(content: {
-            NavigationLink(
-                destination: FateStayCatView(),
-                label: {
-                    Text("点我跳转到第二个画面")
-                })
+            VStack{
+                NavigationLink(
+                    destination: RandomCatImageView(),
+                    label: {
+                        Text("随机猫图")
+                    })
+                NavigationLink(
+                    destination: AllCatImageView(),
+                    label: {
+                        Text("所有猫图")
+                    })
+                NavigationLink(
+                    destination: BreedList(),
+                    label: {
+                        Text("种类")
+                    })
+                NavigationLink(
+                    destination: CollectedCatImageView(),
+                    label: {
+                        Text("收藏的猫图")
+                    })
+                NavigationLink(
+                    destination: VotedCatImageView(),
+                    label: {
+                        Text("点赞的猫图")
+                    })
+                NavigationLink(
+                    destination: UploadImageView(),
+                    label: {
+                        Text("上传猫图")
+                    })
+                NavigationLink(
+                    destination: FateStayCatView(),
+                    label: {
+                        Text("缘分品种")
+                    })
+            }
+
         })
         .navigationBarTitle(Text("Person"),displayMode: .inline)
     }

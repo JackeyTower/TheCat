@@ -48,7 +48,9 @@ struct RandomCatImageView: View {
                 }
                 do{
                     var res=try CatImageDataHelper.find(findId: catImageViewModel.catImage.id)
-                    try! CatImageDataHelper.insert(item: CollectedCatImage(id:catImageViewModel.catImage.id,url:catImageViewModel.catImage.imageURL))
+                    if res == nil {
+                        try! CatImageDataHelper.insert(item: CollectedCatImage(id:catImageViewModel.catImage.id,url:catImageViewModel.catImage.imageURL))
+                    }
                 }catch _{
                     
                 }
@@ -61,7 +63,9 @@ struct RandomCatImageView: View {
                 }
                 do{
                     var res=try VoteCatImageDataHelper.find(findId: catImageViewModel.catImage.id)
-                    try! VoteCatImageDataHelper.insert(item: VotedCatImage(id:catImageViewModel.catImage.id,url:catImageViewModel.catImage.imageURL))
+                    if res == nil {
+                        try! VoteCatImageDataHelper.insert(item: VotedCatImage(id:catImageViewModel.catImage.id,url:catImageViewModel.catImage.imageURL))
+                    }
                 }catch _{
                     
                 }
