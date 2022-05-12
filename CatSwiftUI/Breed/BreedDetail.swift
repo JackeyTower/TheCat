@@ -9,7 +9,7 @@ import SwiftUI
 
 //种类详情视图
 struct BreedDetail: View {
-    var breed: Breed2
+    var breed: Breed
     var body: some View {
         VStack{
             Text((breed.name ?? "null"))

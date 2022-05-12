@@ -7,6 +7,7 @@
 
 import Foundation
 
+//被点赞猫图视图Model
 class VotedCatImageViewModel:ObservableObject {
     @Published var catImageData : [CatImage] = []// 1
     
@@ -17,6 +18,7 @@ class VotedCatImageViewModel:ObservableObject {
 
 extension VotedCatImageViewModel {
     
+    //获取被点赞过的猫图片数据
     func fetchVotedCatImage() ->(){
         do{
             try SQLiteDataSource.sharedInstance.createTables()

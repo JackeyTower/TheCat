@@ -22,10 +22,11 @@ class CatImageViewModel: ObservableObject {
 
 extension CatImageViewModel {
     
+    //获取随机猫图信息
     func fetchRandomCatImage() ->(){
         
         var json=JSON()
-        var breedData:[Breed2]=Array()
+        var breedData:[Breed]=Array()
         
         //使用AF来发送http请求，获取响应
 

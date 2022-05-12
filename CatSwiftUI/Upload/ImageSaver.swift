@@ -9,6 +9,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 
+//图片保存器
 class ImageSaver: NSObject {
     var successHandler: (() -> Void)?
     var errorHandler: ((Error) -> Void)?

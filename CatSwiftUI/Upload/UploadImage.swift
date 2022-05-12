@@ -101,7 +101,7 @@ struct UploadImageView: View {
             currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
             applyProcessing()
         }catch _{
-            print("unknown bug")
+            print("bug")
         }
     }
 
@@ -115,49 +115,61 @@ struct UploadImageView: View {
     }
 
     func applyProcessing() {
-        let inputKeys = currentFilter.inputKeys
-
-        if inputKeys.contains(kCIInputIntensityKey) { currentFilter.setValue(filterIntensity, forKey: kCIInputIntensityKey) }
-        if inputKeys.contains(kCIInputRadiusKey) { currentFilter.setValue(filterIntensity * 200, forKey: kCIInputRadiusKey) }
-        if inputKeys.contains(kCIInputScaleKey) { currentFilter.setValue(filterIntensity * 10, forKey: kCIInputScaleKey) }
-
-        guard let outputImage = currentFilter.outputImage else { return }
-
-        if let cgimg = context.createCGImage(outputImage, from: outputImage.extent) {
-            let uiImage = UIImage(cgImage: cgimg)
-            image = Image(uiImage: uiImage)
-            processedImage = uiImage
+        do {
+            let inputKeys = currentFilter.inputKeys
+            
+            if inputKeys.contains(kCIInputIntensityKey) { currentFilter.setValue(filterIntensity, forKey: kCIInputIntensityKey) }
+            if inputKeys.contains(kCIInputRadiusKey) { currentFilter.setValue(filterIntensity * 200, forKey: kCIInputRadiusKey) }
+            if inputKeys.contains(kCIInputScaleKey) { currentFilter.setValue(filterIntensity * 10, forKey: kCIInputScaleKey) }
+            
+            guard let outputImage = currentFilter.outputImage else { return }
+            
+            if let cgimg = context.createCGImage(outputImage, from: outputImage.extent) {
+                let uiImage = UIImage(cgImage: cgimg)
+                image = Image(uiImage: uiImage)
+                processedImage = uiImage
+            }
+        }catch _ {
+            
         }
     }
 
     func setFilter(_ filter: CIFilter) {
-        currentFilter = filter
-        loadImage()
+        do {
+            currentFilter = filter
+            loadImage()
+        }catch _ {
+            
+        }
     }
     
     func uploadCatImage(image:UIImage){
-        //封装Headers
-        let headers: HTTPHeaders = [
-            "Content-Type" : "application/x-www-form-urlencoded",
-            "x-api-key" : "a8d8adb8-fec8-452a-bd93-dc9f0dba6c74"
-        ]
-        
-        let imageData=image.jpegData(compressionQuality: 0.5)!
-        
-        //发送请求
-        AF.upload(multipartFormData: { multipartFormData in
-            multipartFormData.append(imageData, withName: "file",fileName: "file",mimeType: "image/jpg")
-        }, to: "https://api.thecatapi.com/v1/images/upload",headers: headers).response{
-            (response) in
-            let code=response.response?.statusCode
-            if code==201{
-                print("success")
-            }else{
-                print("error")
-                //上传失败，图中没有猫
-                self.notFoundCat=true
+        do {
+            //封装Headers
+            let headers: HTTPHeaders = [
+                "Content-Type" : "application/x-www-form-urlencoded",
+                "x-api-key" : "a8d8adb8-fec8-452a-bd93-dc9f0dba6c74"
+            ]
+            
+            let imageData=image.jpegData(compressionQuality: 0.5)!
+            
+            //发送请求
+            AF.upload(multipartFormData: { multipartFormData in
+                multipartFormData.append(imageData, withName: "file",fileName: "file",mimeType: "image/jpg")
+            }, to: "https://api.thecatapi.com/v1/images/upload",headers: headers).response{
+                (response) in
+                let code=response.response?.statusCode
+                if code==201{
+                    print("success")
+                }else{
+                    print("error")
+                    //上传失败，图中没有猫
+                    self.notFoundCat=true
+                }
+                self.saved=true
             }
-            self.saved=true
+        }catch _{
+            
         }
     }
 }

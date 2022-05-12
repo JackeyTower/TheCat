@@ -9,7 +9,7 @@ import SwiftUI
 
 //种类列表行识图
 struct BreedRow: View {
-    var breed:Breed2
+    var breed:Breed
     
     var body: some View {
         HStack{

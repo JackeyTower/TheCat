@@ -7,6 +7,7 @@
 import PhotosUI
 import SwiftUI
 
+//图片打开器
 struct ImagePicker: UIViewControllerRepresentable {
     @Binding var image: UIImage?
 

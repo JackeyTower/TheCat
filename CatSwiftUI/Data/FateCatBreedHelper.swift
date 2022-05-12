@@ -7,12 +7,14 @@
 import Foundation
 import SQLite
 
+//缘分猫品种结构题
 struct FateCatBreed{
     var id: String
     var breedName: String
     var times:Int
 }
 
+//缘分猫品种数据Helper
 class FateCatBreedDataHelper {
     static let TABLE_NAME = "fate_breed"
    

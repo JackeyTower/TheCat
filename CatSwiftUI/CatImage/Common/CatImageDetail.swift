@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+//猫图详情视图
 struct CatImageDetail: View {
     var catImage: CatImage
     @State var collected=false

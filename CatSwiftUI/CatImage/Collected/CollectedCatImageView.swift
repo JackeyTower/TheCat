@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+//被收藏的猫图视图
 struct CollectedCatImageView: View {
     @ObservedObject var currentData=CollectedCatImageViewModel()
     

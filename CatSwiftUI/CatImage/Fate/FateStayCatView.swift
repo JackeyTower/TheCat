@@ -7,7 +7,9 @@
 
 import SwiftUI
 
+//缘分猫品种视图
 struct FateStayCatView: View {
+    //当前视图的数据
     @ObservedObject var currentData=FateStayCatViewModel()
     
     var body: some View {
@@ -15,7 +17,6 @@ struct FateStayCatView: View {
             Text((currentData.breed.name ?? "null"))
             Text((currentData.breed.id ?? "null"))
             Text((currentData.breed.description ?? "null"))
-            WebImageView(url: URL(string: currentData.breed.imageURL))
         }
     }
 }

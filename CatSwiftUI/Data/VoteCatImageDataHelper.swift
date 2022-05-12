@@ -8,11 +8,13 @@
 import Foundation
 import SQLite
 
+//被点赞的猫图结构体
 struct VotedCatImage{
     var id: String
     var url: String
 }
 
+//被点赞的猫图数据Helper
 class VoteCatImageDataHelper {
     static let TABLE_NAME = "vote_cat_image"
    

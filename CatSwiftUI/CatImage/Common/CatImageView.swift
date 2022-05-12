@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+//猫图视图
 struct CatImageView: View {
     var imageUrl: String
     

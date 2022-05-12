@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+//猫图行视图
 struct CatImageRow: View {
     var catImage:CatImage
     

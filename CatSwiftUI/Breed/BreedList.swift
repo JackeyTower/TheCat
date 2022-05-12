@@ -20,13 +20,13 @@ struct BreedList: View {
                 VStack{
                     Button("-"){
                         self.page=self.page-1
-                        currentData.fetchBreeds2(page: self.page)
+                        currentData.fetchBreeds(page: self.page)
                     }
                 }
                 VStack{
                     Button("+"){
                         self.page=self.page+1
-                        currentData.fetchBreeds2(page: self.page)
+                        currentData.fetchBreeds(page: self.page)
                     }
                 }
 

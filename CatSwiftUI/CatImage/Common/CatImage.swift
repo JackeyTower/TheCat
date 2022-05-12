@@ -9,7 +9,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-// MARK: - Breed
+//猫图结构体
 struct CatImage:Identifiable{
     var id:String
     var breedId:String

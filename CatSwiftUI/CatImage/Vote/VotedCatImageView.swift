@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+//被点赞猫图视图
 struct VotedCatImageView: View {
     @ObservedObject var currentData=VotedCatImageViewModel()
     

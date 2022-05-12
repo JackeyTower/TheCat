@@ -11,21 +11,23 @@ import Combine
 import Alamofire
 import SwiftyJSON
 
+//种类列表视图Model
 class BreedListViewModel: ObservableObject {
 
-    @Published var breedDataList: [Breed2] = [] // 1
+    @Published var breedDataList: [Breed] = [] // 1
 
     init(){
-        fetchBreeds2(page: 1)
+        fetchBreeds(page: 1)
     }
 }
 
 extension BreedListViewModel {
     
-    func fetchBreeds2(page:Int) ->(){
+    //获取品种列表数据
+    func fetchBreeds(page:Int) ->(){
         
         var json=JSON()
-        var breedData:[Breed2]=Array()
+        var breedData:[Breed]=Array()
         
         //使用AF来发送http请求，获取响应
         //封装parameters
@@ -54,7 +56,7 @@ extension BreedListViewModel {
                 case .success:
                     for i in 0..<20 {
                         print("\(json[i]["id"])")
-                        var breed2=Breed2(name: json[i]["name"].stringValue, id: json[i]["id"].stringValue, imageURL: json[i]["image"]["url"].stringValue, description: json[i]["description"].stringValue)
+                        var breed2=Breed(name: json[i]["name"].stringValue, id: json[i]["id"].stringValue, imageURL: json[i]["image"]["url"].stringValue, description: json[i]["description"].stringValue)
                         print("\(breed2.id)")
                         breedData.append(breed2)
                         print("\(breedData.count)")
